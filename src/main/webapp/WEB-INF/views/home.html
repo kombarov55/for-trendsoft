@@ -1,0 +1,85 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../../stylesheets/style.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="../../js/ctrl.js"></script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+	<header>
+		<h1>Новости</h1>
+	</header>
+	<nav>
+		<span ng-click="currentState = 'search'">Поиск</span>
+		<span ng-click="currentState = 'create'">Создать новость</span>
+		<span ng-click="currentState = 'view'">Главная страница</span>
+	</nav>
+	<div class="container" ng-show="currentState == 'view'">
+		<section ng-repeat="news in newsFeed">
+			<div class="heading">
+				<span id="heading" ng-bind="news.heading"></span>
+				<span id="category" ng-bind="news.category.name"></span>
+				<div id="date" ng-bind="news.date | date : 'dd MMMM yyyy, hh:mm' "></div>
+			</div>
+				<p ng-bind="news.content"></p>
+				<span id="change" ng-click="updateButtonClicked(news)">Редактировать</span>
+				<span id="change" ng-click="deleteButtonClicked(news)">Удалить</span>
+
+		</section>
+	</div>
+		<div class="container" ng-show="currentState == 'create'">
+			<form>
+				<h2>Создать новость</h2>
+				<input id="heading-input" placeholder="Название.." ng-model="creatingObject.heading"/>
+				<textarea id="content-input" placeholder="Содержание.." ng-model="creatingObject.content"></textarea>
+				<div class="category-select">
+					<div class="radio" ng-repeat="category in categories"><input id="radio" type="radio" name="category.name" value="Sport" ng-click="creatingObject.category = category" />{{category.name}}</div>
+				</div>
+				<br>
+				<span id="clickable-button" ng-click="createButtonClicked()">Создать</span>
+			</form>
+		</div>
+		<div ng-show="currentState == 'search'" class="container">
+			<form id="search-form">
+				<h2>Поиск</h2>
+				<input id="search" placeholder="Название.." ng-model="searchingObject.heading" />
+				<input id="search" placeholder="Примерное содержание.." ng-model = "searchingObject.content" />
+				<h4>Категория:</h4>
+				<div class="category-select">
+					<div class="radio" ng-repeat="category in categories"><input id="radio" type="radio" name="category.name" value="Sport" ng-click="searchingObject.category = category" />{{category.name}}</div>
+
+				</div>
+				<span id="clickable-button" ng-click="searchButtonClicked()" >Найти</span>
+			</form>
+		</div>
+
+		<div class="container" ng-show="currentState == 'update'">
+			<form>
+				<h2>Редактировать..</h2>
+				<input id="heading-input" placeholder="Название.." ng-model="updatingObject.heading"/>
+				<textarea id="content-input" placeholder="Содержание.." ng-model="updatingObject.content"></textarea>
+				<div class="category-select">
+					<div class="radio" ng-repeat="category in categories"><input id="radio" type="radio" name="category.name" value="Sport" ng-click="updatingObject.category = category" />{{category.name}}</div>
+				</div>
+				<br>
+				<span id="clickable-button" ng-click="saveButtonClicked()">Создать</span>
+			</form>
+		</div>
+
+		<div class="container" ng-show="currentState == 'filtered'">
+		<section ng-repeat="news in filteredNewsFeed">
+			<div class="heading">
+				<span id="heading" ng-bind="news.heading"></span>
+				<span id="category" ng-bind="news.category.name"></span>
+				<div id="date" ng-bind="news.date | date : 'dd MMMM yyyy, hh:mm' "></div>
+			</div>
+				<p ng-bind="news.content"></p>
+		</section>
+	</div>
+
+		<content-navigation>
+			<span id="page-back" ng-show="currentState == 'view'">Назад</span>
+			<span id="page-forward" ng-show="currentState == 'view'">Вперед</span>
+		</content-navigation>
+</body>
+</html>

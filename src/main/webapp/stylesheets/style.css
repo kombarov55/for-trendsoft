@@ -1,0 +1,138 @@
+* {
+	text-align: center;
+}
+
+header {
+	border: 1px solid black;
+	height: 14%;
+}
+
+nav {
+	border: 1px solid black;
+	height: 6%;
+}
+
+table {
+	margin: auto;
+}
+
+.container {
+	border: 2px solid black;
+	width: 100%;
+	height: 70%;
+	overflow: auto;
+}
+
+section {
+	height: 70%;
+	border: 3px solid black;
+}
+
+.heading {
+	border: 1px solid black;
+	height: 25%;
+}
+
+#heading {
+	font-size: 28px;
+	text-decoration: underline;
+	border: 0;
+	width: 100%;
+}
+
+#category {
+	font-size: 22px;
+	border: 0;
+}
+
+span {
+	display: inline-block;
+	border: 1px solid black;
+	width: 10%;
+	margin: auto;
+	margin-top: 1px;
+
+}
+
+#clickable-button {
+	margin-top: 1%;
+}
+
+form {
+	border: 5px solid black;
+	height: 90%;
+	width: 90%;
+	margin: auto;
+	margin-top: 1%;
+}
+
+#search-form {
+	height: 55%;
+}
+
+#heading-input {
+	display: block;
+	margin: auto;
+	margin-bottom: 1%;
+	margin-top: 1%;
+	font-size: 24px;
+	width: 60%;
+	height: 10%;
+}
+
+#content-input {
+	display: block;
+	margin: auto;
+	margin-bottom: 1%;
+	margin-top: 1%;
+	font-size: 16px;
+	height: 30%;
+	width: 60%;
+}
+
+.category-select {
+	height: 20%;
+	width: 60%;
+	border: 1px solid black;
+	margin: auto;
+	margin-top: 1%;
+	overflow: auto;
+}
+
+.radio {
+	border: 1px solid black;
+	width: 15%;
+	display: inline-block;
+	margin: 1%;
+}
+
+#search {
+	height: 10%;
+	width: 30%;
+}
+
+p {
+	padding: 2%;
+	border: 1px solid black;
+	width: 80%;
+	height: 40%;
+	margin: auto;
+	margin-top: 1%;
+}
+
+.content-navigation {
+	height: 10%;
+}
+
+#page-back {
+	float: left;
+	margin: 1% 10%;
+}
+
+#page-forward {
+	float: right;
+	margin: 1% 10%;
+}
+
+#change {
+}
